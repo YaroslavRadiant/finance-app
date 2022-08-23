@@ -12,8 +12,6 @@ const sharesReducer = (state = initialState, action) => {
     }
     case CHANGE_ONE_CHECKBOX_STATUS: {
       let newStateArray = state.map((item) => {
-        console.log(Object.keys(item));
-        console.log(action.payload);
         return Object.keys(item)[0] === Object.keys(action.payload)[0]
           ? action.payload
           : item;
