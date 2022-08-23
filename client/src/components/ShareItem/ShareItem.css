@@ -1,0 +1,67 @@
+.share_item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #000;
+  padding: 20px 0;
+}
+
+.share_item p {
+  width: 25%;
+  text-align: center;
+}
+.share_item div {
+  width: 25%;
+}
+
+.share_item__ticker {
+  padding: 10px;
+  border: 1px solid #3d7eb3;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.share_item__price,
+.share_item__change,
+.share_item__change_percent {
+  padding-left: 10%;
+}
+
+.share_item .change_percent__text {
+  width: 90%;
+  text-align: center;
+  padding: 10px 0 10px 10px;
+}
+
+.share_item__arrow_green,
+.share_item__arrow_red {
+  position: relative;
+  border-radius: 5px;
+}
+.share_item__arrow_green {
+  background-color: #e6f4ea;
+}
+.share_item__arrow_green::before {
+  content: url("../../assets/images/arrowGreen.svg");
+  position: absolute;
+  margin: 0 0 0 -25px;
+  top: 2px;
+  transform: rotate(180deg);
+}
+.share_item__arrow_red {
+  background-color: #fce8e6;
+}
+.share_item__arrow_red::before {
+  content: url("../../assets/images/arrowRed.svg");
+  position: absolute;
+  margin: 0 0 0 -25px;
+  top: 10px;
+}
+
+.share_item__text_green {
+  color: #137333;
+}
+.share_item__text_red {
+  color: #a50e0e;
+}

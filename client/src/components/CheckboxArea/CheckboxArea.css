@@ -1,0 +1,13 @@
+.checkbox_area {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.checkbox_item {
+  border: 1px solid #3d7eb3;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.checkbox_item input {
+  margin-left: 10px;
+}
