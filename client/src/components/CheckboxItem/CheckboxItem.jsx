@@ -22,8 +22,8 @@ export default function CheckboxItem({ ticker }) {
   return (
     <div className="checkbox_item">
       {ticker}
-      <p>123</p>
       <input
+        data-test-id="custom-element"
         type="checkbox"
         id="scales"
         name="scales"
