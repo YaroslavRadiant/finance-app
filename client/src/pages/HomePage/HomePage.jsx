@@ -13,7 +13,6 @@ export default function HomePage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    socket.connect();
     socket.emit("start", (msg) => console.info("msg"));
 
     socket.on("ticker", (data) => {
@@ -25,18 +24,15 @@ export default function HomePage() {
     };
   }, [dispatch]);
 
+  const renderShareArray = () => {
+    return shareArray.map((el) => {
+      return <ShareItem key={el.ticker} price={el.price} ticker={el.ticker} />;
+    });
+  };
   return (
     <div className="page_wrapper">
       <CheckboxArea shareArray={shareArray} />
-      {shareArray ? (
-        shareArray.map((el) => {
-          return (
-            <ShareItem key={el.ticker} price={el.price} ticker={el.ticker} />
-          );
-        })
-      ) : (
-        <div>Nothing</div>
-      )}
+      {shareArray ? renderShareArray() : <div>Nothing</div>}
     </div>
   );
 }

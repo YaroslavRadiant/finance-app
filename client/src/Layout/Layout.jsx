@@ -11,7 +11,6 @@ export default function layout() {
           <img src={logo} alt="Logo"></img>
           <p>My finances</p>
         </NavLink>
-        <div className="cartHeaderSection"></div>
       </header>
       <Outlet />
     </>
