@@ -14,7 +14,7 @@ export default function ShareItem({ ticker, price }) {
 
   const renderFromStatus = () => {
     if (checks.length) {
-      let checkboxStatus = checks.find(
+      const checkboxStatus = checks.find(
         (item) => Object.keys(item)[0] === ticker
       );
       if (Object.values(checkboxStatus)[0]) {
@@ -24,7 +24,7 @@ export default function ShareItem({ ticker, price }) {
       }
     }
   };
-  renderFromStatus();
+
   const renderItemPriceChange = () => {
     return typeof getСhangeSharePriceSelector(shares, ticker) === "string"
       ? getСhangeSharePriceSelector(shares, ticker) + "$"

@@ -22,6 +22,7 @@ export default function CheckboxItem({ ticker }) {
   return (
     <div className="checkbox_item">
       {ticker}
+      <p>123</p>
       <input
         type="checkbox"
         id="scales"
