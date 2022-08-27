@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import {
@@ -9,10 +9,11 @@ import {
 import "./ShareItem.css";
 
 export default function ShareItem({ ticker, price }) {
+  
   const shares = useSelector((state) => state.shares);
   const checks = useSelector((state) => state.sharesStatus);
 
-  const renderFromStatus = () => {
+  const renderFromStatus = useMemo(() => {
     if (checks.length) {
       const checkboxStatus = checks.find(
         (item) => Object.keys(item)[0] === ticker
@@ -23,15 +24,15 @@ export default function ShareItem({ ticker, price }) {
         return false;
       }
     }
-  };
+  }, [checks, ticker]);
 
-  const renderItemPriceChange = () => {
+  const renderItemPriceChange = useMemo(() => {
     return typeof getСhangeSharePriceSelector(shares, ticker) === "string"
       ? getСhangeSharePriceSelector(shares, ticker) + "$"
       : "Loading data...";
-  };
+  }, [shares, ticker]);
 
-  const setArrowColorClass = () => {
+  const setArrowColorClass = useMemo(() => {
     if (
       getСhangeSharePriceSelector(shares, ticker) &&
       getСhangeSharePriceSelector(shares, ticker) > 0
@@ -45,9 +46,9 @@ export default function ShareItem({ ticker, price }) {
     } else if (getСhangeSharePriceSelector(shares, ticker)) {
       return;
     }
-  };
+  }, [shares, ticker]);
 
-  const setTextColorClass = () => {
+  const setTextColorClass = useMemo(() => {
     if (
       typeof getСhangeSharePriceSelector(shares, ticker) === "string" &&
       getСhangeSharePriceSelector(shares, ticker) > 0
@@ -61,17 +62,17 @@ export default function ShareItem({ ticker, price }) {
     } else if (getСhangeSharePriceSelector(shares, ticker)) {
       return;
     }
-  };
+  }, [shares, ticker]);
 
-  return renderFromStatus() ? (
+  return renderFromStatus ? (
     <div className="share_item">
       <p className="share_item__ticker">{ticker}</p>
       <p className="share_item__price">{price} $</p>
-      <p className={`share_item__change ${setTextColorClass()}`}>
-        {renderItemPriceChange()}
+      <p className={`share_item__change ${setTextColorClass}`}>
+        {renderItemPriceChange}
       </p>
       <div className={`share_item__change_percent`}>
-        <p className={`change_percent__text ${setArrowColorClass()}`}>
+        <p className={`change_percent__text ${setArrowColorClass}`}>
           {getСhangeOfPercentSelector(shares, ticker, price)}
         </p>
       </div>
