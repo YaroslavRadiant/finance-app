@@ -11,7 +11,7 @@ Also no tests, didn't write tests with redux before :(
 
 v 0.2.0 
 
-1.Initialization of websockets is moved to a higher level.
+1. Initialization of websockets is moved to a higher level.
 
 2. All functions are wrapped in useMemo and their values are transferred to the layout, a utils folder was created for individual functions, but it is illogical to transfer functions from old components there because of the use of state and other data in them, which are import too.
 
